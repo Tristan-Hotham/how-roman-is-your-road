@@ -166,8 +166,9 @@ const map = L.map('map', {zoomSnap:.5, minZoom:5, maxZoom:17, scrollWheelZoom:fa
 map.on('focus', () => map.scrollWheelZoom.enable());
 map.attributionControl.setPrefix(false);
 const dark = matchMedia('(prefers-color-scheme: dark)').matches;
-L.tileLayer(`https://{s}.basemaps.cartocdn.com/${dark ? 'dark' : 'light'}_nolabels/{z}/{x}/{y}{r}.png`, {subdomains:'abcd', maxZoom:19,
-  attribution:'Base map © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, © <a href="https://carto.com/attributions">CARTO</a>'}).addTo(map);
+const ESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/';
+L.tileLayer(ESRI + (dark ? 'World_Dark_Gray_Base' : 'World_Light_Gray_Base') + '/MapServer/tile/{z}/{y}/{x}', {maxNativeZoom:16, maxZoom:19,
+  attribution:'Base map © Esri, HERE, Garmin, © OpenStreetMap contributors'}).addTo(map);
 
 map.createPane('lidar'); map.getPane('lidar').style.zIndex = 350;
 map.createPane('lines'); map.getPane('lines').style.zIndex = 450;
@@ -176,7 +177,7 @@ const lidar = L.tileLayer.wms('https://environment.data.gov.uk/spatialdata/lidar
   layers:'Lidar_Composite_Hillshade_DTM_1m', styles:'', format:'image/png', transparent:true, version:'1.3.0', pane:'lidar',
   minZoom:13, maxZoom:19, opacity:.85,
   attribution:'Lidar © Environment Agency, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL v3</a>'});
-const labels = L.tileLayer(`https://{s}.basemaps.cartocdn.com/${dark ? 'dark' : 'light'}_only_labels/{z}/{x}/{y}{r}.png`, {subdomains:'abcd', pane:'labels', maxZoom:19}).addTo(map);
+const labels = L.tileLayer(ESRI + (dark ? 'World_Dark_Gray_Reference' : 'World_Light_Gray_Reference') + '/MapServer/tile/{z}/{y}/{x}', {pane:'labels', maxNativeZoom:16, maxZoom:19}).addTo(map);
 
 let counties, roman, match, selected = null;
 const style = f => ({color: css('--chalk') || '#fff', weight:1, fillOpacity: shadeOn ? .78 : 0, fillColor: col(byName[f.properties.county]?.share || 0)});
@@ -221,9 +222,9 @@ Promise.all(['map/counties.geojson', 'map/roman_roads.geojson', 'map/roman_aroad
     l.bindTooltip(`<b>${f.properties.county}</b><br>${c ? fmt(c.share) + '% Roman' : ''}`, {sticky:true});
     l.on('click', () => choose(f.properties.county, false));
   }}).addTo(map);
-  roman = L.geoJSON(rg, {pane:'lines', interactive:true, style: f => ({color: css('--roman'), weight: f.properties.type === 'Main Road' ? 2.6 : 1.8, opacity:.95, dashArray: f.properties.cert === 'Hypothetical' ? '4 5' : null}),
+  roman = L.geoJSON(rg, {pane:'lines', interactive:true, style: f => ({color: css('--roman'), weight: f.properties.type === 'Main Road' ? 2.2 : 1.4, opacity:.95, dashArray: f.properties.cert === 'Hypothetical' ? '4 5' : null}),
     onEachFeature: (f, l) => l.bindTooltip(`<b>${f.properties.name || 'Roman road'}</b><br>${f.properties.type}, ${f.properties.cert.toLowerCase()}`, {sticky:true})}).addTo(map);
-  match = L.geoJSON(mg, {pane:'lines', style: {color: css('--green'), weight: 4, opacity: .95},
+  match = L.geoJSON(mg, {pane:'lines', style: {color: css('--green'), weight: 3, opacity: .9},
     onEachFeature: (f, l) => l.bindTooltip(`${f.properties.ref} on a Roman line`, {sticky:true})}).addTo(map);
   choose(selected, false);
 });

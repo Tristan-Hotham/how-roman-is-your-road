@@ -12,6 +12,8 @@ c = gpd.read_file('data/counties.geojson')
 c['geometry'] = c.geometry.simplify(0.002, preserve_topology=True)
 c.to_file('map/counties.geojson', driver='GeoJSON', COORDINATE_PRECISION=4)
 r = gpd.read_file('results/itinere_gb_corrected.geojson')[['name', 'type', 'cert', 'geometry']]
+land = c.to_crs(27700).buffer(2000).union_all()
+r = r[r.to_crs(27700).intersects(land)]  # drop the few French roads in the bounding box
 r.to_file('map/roman_roads.geojson', driver='GeoJSON', COORDINATE_PRECISION=5)
 shutil.copy('results/roman_aroads.geojson', 'map/roman_aroads.geojson')
 
