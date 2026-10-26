@@ -76,7 +76,7 @@ body = f'''
       <thead><tr><th><button data-k="county">County</button></th><th class="l"><button data-k="nation">Nation</button></th><th><button data-k="km">A-road km</button></th><th><button data-k="roman_km">Roman km</button></th><th><button data-k="share">Share ▾</button></th></tr></thead>
       <tbody></tbody>
     </table></div>
-    <p class="note">Click a column heading to sort.</p>
+    <p class="note"><button type="button" id="more" aria-expanded="false">Show all {len(R["counties"])} areas</button> Click a column heading to sort.</p>
 
     <h2>Near Clitheroe: the road you can still see</h2>
     <p>Lancashire comes out at {fmt(L["share"])}%, below the English average. Most of that is the <span class="sign">A6</span> north of Preston, on the Roman road to Lancaster. The <span class="sign">A59</span> is a surprise: it follows a Roman line for about 1.5 km in Lancashire, near Worston, where it sits right on the road from Ribchester to Ilkley, and for about 16 km in North Yorkshire.</p>
@@ -121,6 +121,8 @@ og = f'{fmt(T["share"])}% of Britain\'s A-road length still follows a Roman line
 h = open('template.html').read()
 h = (h.replace('{{INTRO}}', intro).replace('{{FACTS}}', facts).replace('{{BODY}}', body).replace('{{OG}}', og)
       .replace('{{RES}}', json.dumps(res, separators=(',', ':'))).replace('{{PLACES}}', json.dumps(places)))
+import re
+h = re.sub(r'(<span class="sign">[^<]+</span>)([.,;:])', r'<span style="white-space:nowrap">\1\2</span>', h)
 open('index.html', 'w').write(h)
 for f in os.listdir('map'): print(f, os.path.getsize('map/' + f))
 print('index', len(h))

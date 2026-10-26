@@ -148,7 +148,7 @@ figcaption{font-size:14px;color:var(--muted);margin-top:6px}
   <div class="col">
     
     <h2>Watling Street still leads</h2>
-    <p>Measured in kilometres, no road is more Roman than the <span class="sign">A5</span>: 135 km of it sits on Watling Street, the road from London to Wroxeter. The rest of the A5 continues to Holyhead on Thomas Telford's nineteenth-century line. Next come the <span class="sign">A46</span> on the Fosse Way, the <span class="sign">A38</span>, which follows Ryknild Street and the road south from Gloucester, and the <span class="sign">A66</span> over Stainmore. The roads with the highest share are shorter ones: in Cambridgeshire the <span class="sign">A1198</span> is Ermine Street for three quarters of its length. Seen the other way round, 20% of the 11,578 km of Roman road that Itiner-e maps in Britain now lies under an A-road; for the main routes it is 28%.</p>
+    <p>Measured in kilometres, no road is more Roman than the <span style="white-space:nowrap"><span class="sign">A5</span>:</span> 135 km of it sits on Watling Street, the road from London to Wroxeter. The rest of the A5 continues to Holyhead on Thomas Telford's nineteenth-century line. Next come the <span class="sign">A46</span> on the Fosse Way, the <span style="white-space:nowrap"><span class="sign">A38</span>,</span> which follows Ryknild Street and the road south from Gloucester, and the <span class="sign">A66</span> over Stainmore. The roads with the highest share are shorter ones: in Cambridgeshire the <span class="sign">A1198</span> is Ermine Street for three quarters of its length. Seen the other way round, 20% of the 11,578 km of Roman road that Itiner-e maps in Britain now lies under an A-road; for the main routes it is 28%.</p>
     <figure>
       <div class="tbl"><table>
         <thead><tr><th>Road</th><th>A-road km</th><th>On a Roman line, km</th><th>Share</th></tr></thead>
@@ -174,7 +174,7 @@ figcaption{font-size:14px;color:var(--muted);margin-top:6px}
       <thead><tr><th><button data-k="county">County</button></th><th class="l"><button data-k="nation">Nation</button></th><th><button data-k="km">A-road km</button></th><th><button data-k="roman_km">Roman km</button></th><th><button data-k="share">Share ▾</button></th></tr></thead>
       <tbody></tbody>
     </table></div>
-    <p class="note">Click a column heading to sort.</p>
+    <p class="note"><button type="button" id="more" aria-expanded="false">Show all 87 areas</button> Click a column heading to sort.</p>
 
     <h2>Near Clitheroe: the road you can still see</h2>
     <p>Lancashire comes out at 4.0%, below the English average. Most of that is the <span class="sign">A6</span> north of Preston, on the Roman road to Lancaster. The <span class="sign">A59</span> is a surprise: it follows a Roman line for about 1.5 km in Lancashire, near Worston, where it sits right on the road from Ribchester to Ilkley, and for about 16 km in North Yorkshire.</p>
@@ -186,7 +186,7 @@ figcaption{font-size:14px;color:var(--muted);margin-top:6px}
     <p>The Roman Roads Research Association's <a href="https://www.romanroads.org/gazetteer/M72a.htm">gazetteer entry for this road</a>, by David Ratledge, traces it field by field. Use the buttons beside the map to fly to Downham and three other places where the agger is clear on lidar.</p>
 
     <h2>A wrinkle in the data</h2>
-    <p>On a first pass, the Roman roads in Itiner-e sat about 100 metres east of the modern roads that are known to follow them, such as the <span class="sign">A15</span> north of Lincoln and the <span class="sign">A429</span>. That is the size and direction of the gap between Britain's old OSGB36 map grid and the GPS system used by OpenStreetMap. Read as OSGB36 coordinates, the lines fall into place: the median gap between the A429 and the Fosse Way drops from 106 metres to 8. On the lidar they then sit on the surviving banks, as at Downham. All the figures here use the corrected lines.</p>
+    <p>On a first pass, the Roman roads in Itiner-e sat about 100 metres east of the modern roads that are known to follow them, such as the <span class="sign">A15</span> north of Lincoln and the <span style="white-space:nowrap"><span class="sign">A429</span>.</span> That is the size and direction of the gap between Britain's old OSGB36 map grid and the GPS system used by OpenStreetMap. Read as OSGB36 coordinates, the lines fall into place: the median gap between the A429 and the Fosse Way drops from 106 metres to 8. On the lidar they then sit on the surviving banks, as at Downham. All the figures here use the corrected lines.</p>
 
     <div class="method">
       <h3>How this was measured</h3>
@@ -238,6 +238,7 @@ const col = s => RAMP[Math.min(RAMP.length - 1, Math.floor(s / topPct * RAMP.len
 document.getElementById('scale').innerHTML = RAMP.map(c => `<i style="background:${c}"></i>`).join('');
 
 const map = L.map('map', {zoomSnap:.5, minZoom:5, maxZoom:17, scrollWheelZoom:false}).fitBounds([[49.9,-6.4],[58.7,1.8]]);
+const GB = [[49.9,-6.4],[58.7,1.8]];
 map.on('focus', () => map.scrollWheelZoom.enable());
 map.attributionControl.setPrefix(false);
 const dark = matchMedia('(prefers-color-scheme: dark)').matches;
@@ -284,7 +285,7 @@ function choose(name, fly = true) {
     l.setStyle({weight: on ? 3 : 1, color: on ? css('--ink') : (css('--chalk') || '#fff')});
     if (on) { l.bringToFront(); if (fly) map.flyToBounds(l.getBounds(), {padding:[20, 20], duration:.8}); }
   });
-  if (!selected && fly) map.flyToBounds([[49.9,-6.4],[58.7,1.8]], {duration:.8});
+  if (!selected && fly) map.flyToBounds(GB, {duration:.8});
 }
 
 const pick = document.getElementById('pick');
@@ -301,6 +302,13 @@ Promise.all(['map/counties.geojson', 'map/roman_roads.geojson', 'map/roman_aroad
     onEachFeature: (f, l) => l.bindTooltip(`<b>${f.properties.name || 'Roman road'}</b><br>${f.properties.type}, ${f.properties.cert.toLowerCase()}`, {sticky:true})}).addTo(map);
   match = L.geoJSON(mg, {pane:'lines', style: {color: css('--green'), weight: 3, opacity: .9},
     onEachFeature: (f, l) => l.bindTooltip(`${f.properties.ref} on a Roman line`, {sticky:true})}).addTo(map);
+  const sized = () => { const z = map.getZoom(), k = z < 7 ? .55 : z < 9 ? .8 : 1;
+    const lid = map.hasLayer(lidar);  // on lidar, draw the Roman line light and dashed so the bank underneath stays visible
+    roman.setStyle(f => ({weight: lid ? 2 : (f.properties.type === 'Main Road' ? 2.4 : 1.6) * k, opacity: lid ? .75 : .95,
+      dashArray: lid ? '8 10' : (f.properties.cert === 'Hypothetical' ? '4 5' : null)}));
+    match.setStyle({weight: 3.4 * k, opacity: z < 7 ? .8 : .95}); };
+  map.on('zoomend', sized); lidar.on('add remove', sized); window.__sized = sized; sized();
+  map.invalidateSize(); map.fitBounds(GB);
   choose(selected, false);
 });
 card(null);
@@ -329,12 +337,14 @@ PLACES.forEach(p => {
 // sortable county table
 const tb = document.getElementById('ctable');
 if (tb) {
-  let key = 'share', dir = -1;
+  let key = 'share', dir = -1, all = false;
+  const more = document.getElementById('more');
   const draw = () => {
-    const rows = [...RES.counties].sort((a, b) => dir * ((a[key] > b[key]) - (a[key] < b[key])));
+    const rows = [...RES.counties].sort((a, b) => dir * ((a[key] > b[key]) - (a[key] < b[key]))).slice(0, all ? undefined : 15);
     tb.querySelector('tbody').innerHTML = rows.map(c => `<tr><td>${c.county}</td><td class="l">${c.nation}</td><td>${fmt(c.km, 0)}</td><td>${fmt(c.roman_km)}</td><td><span class="bar" style="width:${(c.share / maxShare * 60).toFixed(1)}px"></span>${fmt(c.share)}%</td></tr>`).join('');
   };
   tb.querySelectorAll('th button').forEach(b => b.addEventListener('click', () => { const k = b.dataset.k; dir = key === k ? -dir : (k === 'county' || k === 'nation' ? 1 : -1); key = k; draw(); }));
+  if (more) more.addEventListener('click', () => { all = !all; more.setAttribute('aria-expanded', String(all)); more.textContent = all ? 'Show the top 15' : `Show all ${RES.counties.length} areas`; draw(); });
   draw();
 }
 </script>
