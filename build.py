@@ -54,7 +54,7 @@ sens_rows = '\n'.join(
     f'<tr><td>{b} m</td><td>{fmt(S[b]["total"]["share"])}%</td><td>{fmt(S[b]["total"]["roman_km"], 0)}</td>'
     f'<td>{S[b]["counties"][0]["county"]}</td><td>{fmt({x["county"]: x for x in S[b]["counties"]}["Lancashire"]["share"])}%</td></tr>'
     for b in (20, 40, 80, 150))
-cov_line = (f' Seen the other way round, {fmt(cov["share"], 0)}% of the {fmt(cov["roman_km"], 0)} km of Roman road that Itiner-e maps in Britain now lies under an A-road.'
+cov_line = (f' Seen the other way round, {fmt(cov["share"], 0)}% of the {fmt(cov["roman_km"], 0)} km of Roman road that Itiner-e maps in Britain now lies under an A-road; for the main routes it is {fmt(cov["Main Road"]["share"], 0)}%.'
             if cov else '')
 
 body = f'''

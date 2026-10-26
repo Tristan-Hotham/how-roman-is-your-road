@@ -148,7 +148,7 @@ figcaption{font-size:14px;color:var(--muted);margin-top:6px}
   <div class="col">
     
     <h2>Watling Street still leads</h2>
-    <p>Measured in kilometres, no road is more Roman than the <span class="sign">A5</span>: 135 km of it sits on Watling Street, the road from London to Wroxeter. The rest of the A5 continues to Holyhead on Thomas Telford's nineteenth-century line. Next come the <span class="sign">A46</span> on the Fosse Way, the <span class="sign">A38</span>, which follows Ryknild Street and the road south from Gloucester, and the <span class="sign">A66</span> over Stainmore. The roads with the highest share are shorter ones: in Cambridgeshire the <span class="sign">A1198</span> is Ermine Street for three quarters of its length.</p>
+    <p>Measured in kilometres, no road is more Roman than the <span class="sign">A5</span>: 135 km of it sits on Watling Street, the road from London to Wroxeter. The rest of the A5 continues to Holyhead on Thomas Telford's nineteenth-century line. Next come the <span class="sign">A46</span> on the Fosse Way, the <span class="sign">A38</span>, which follows Ryknild Street and the road south from Gloucester, and the <span class="sign">A66</span> over Stainmore. The roads with the highest share are shorter ones: in Cambridgeshire the <span class="sign">A1198</span> is Ermine Street for three quarters of its length. Seen the other way round, 20% of the 11,578 km of Roman road that Itiner-e maps in Britain now lies under an A-road; for the main routes it is 28%.</p>
     <figure>
       <div class="tbl"><table>
         <thead><tr><th>Road</th><th>A-road km</th><th>On a Roman line, km</th><th>Share</th></tr></thead>
@@ -229,12 +229,12 @@ const sign = r => `<span class="sign">${r}</span>`;
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const byName = Object.fromEntries(RES.counties.map(c => [c.county, c]));
 const maxShare = Math.max(...RES.counties.map(c => c.share));
-const top = Math.ceil(maxShare / 5) * 5;
-document.getElementById('scalemax').textContent = top + '%';
+const topPct = Math.ceil(maxShare / 5) * 5;
+document.getElementById('scalemax').textContent = topPct + '%';
 
 // purple ramp, light to dark, for the county shading
 const RAMP = ['#f3eef4','#e3d2e2','#cdaeca','#b487af','#985f91','#7a3c73','#5c2257'];
-const col = s => RAMP[Math.min(RAMP.length - 1, Math.floor(s / top * RAMP.length))];
+const col = s => RAMP[Math.min(RAMP.length - 1, Math.floor(s / topPct * RAMP.length))];
 document.getElementById('scale').innerHTML = RAMP.map(c => `<i style="background:${c}"></i>`).join('');
 
 const map = L.map('map', {zoomSnap:.5, minZoom:5, maxZoom:17, scrollWheelZoom:false}).fitBounds([[49.9,-6.4],[58.7,1.8]]);

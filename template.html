@@ -154,12 +154,12 @@ const sign = r => `<span class="sign">${r}</span>`;
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const byName = Object.fromEntries(RES.counties.map(c => [c.county, c]));
 const maxShare = Math.max(...RES.counties.map(c => c.share));
-const top = Math.ceil(maxShare / 5) * 5;
-document.getElementById('scalemax').textContent = top + '%';
+const topPct = Math.ceil(maxShare / 5) * 5;
+document.getElementById('scalemax').textContent = topPct + '%';
 
 // purple ramp, light to dark, for the county shading
 const RAMP = ['#f3eef4','#e3d2e2','#cdaeca','#b487af','#985f91','#7a3c73','#5c2257'];
-const col = s => RAMP[Math.min(RAMP.length - 1, Math.floor(s / top * RAMP.length))];
+const col = s => RAMP[Math.min(RAMP.length - 1, Math.floor(s / topPct * RAMP.length))];
 document.getElementById('scale').innerHTML = RAMP.map(c => `<i style="background:${c}"></i>`).join('');
 
 const map = L.map('map', {zoomSnap:.5, minZoom:5, maxZoom:17, scrollWheelZoom:false}).fitBounds([[49.9,-6.4],[58.7,1.8]]);

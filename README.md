@@ -15,6 +15,7 @@ What share of each county's A-road length still follows a Roman line? This post 
 
 - The most Roman county is Gloucestershire, at 17.6%.
 - The A-road with the most kilometres on a Roman line is the A5, with 135 km on Watling Street.
+- Seen the other way round, 20% of the 11,578 km of Roman road in Itiner-e now lies under an A-road. For main routes the figure is 28%.
 
 Full tables are in `results/`.
 

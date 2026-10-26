@@ -10,7 +10,8 @@ from pyproj import Transformer
 tr = Transformer.from_crs(4326, 27700, always_xy=True)
 rr = gpd.read_file('results/itinere_gb_corrected.geojson').to_crs(27700)
 counties = gpd.read_file('data/counties.geojson').to_crs(27700)
-rr['geometry'] = rr.geometry.intersection(shapely.union_all(counties.geometry.values))
+land = shapely.union_all(counties.geometry.simplify(100).buffer(200).values)  # generalised coast, so clipping is quick
+rr['geometry'] = rr.geometry.intersection(land)
 rr = rr[~rr.is_empty]
 
 segs = []
