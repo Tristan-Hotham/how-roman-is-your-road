@@ -237,8 +237,8 @@ const RAMP = ['#f3eef4','#e3d2e2','#cdaeca','#b487af','#985f91','#7a3c73','#5c22
 const col = s => RAMP[Math.min(RAMP.length - 1, Math.floor(s / topPct * RAMP.length))];
 document.getElementById('scale').innerHTML = RAMP.map(c => `<i style="background:${c}"></i>`).join('');
 
-const map = L.map('map', {zoomSnap:.5, minZoom:5, maxZoom:17, scrollWheelZoom:false}).fitBounds([[49.9,-6.4],[58.7,1.8]]);
-const GB = [[49.9,-6.4],[58.7,1.8]];
+const map = L.map('map', {zoomSnap:.25, minZoom:5, maxZoom:17, scrollWheelZoom:false}).fitBounds([[49.9,-6.4],[58.7,1.8]]);
+const GB = [[50.0,-5.7],[55.9,1.8]];  // England, Wales and southern Scotland, where the Roman roads are
 map.on('focus', () => map.scrollWheelZoom.enable());
 map.attributionControl.setPrefix(false);
 const dark = matchMedia('(prefers-color-scheme: dark)').matches;
