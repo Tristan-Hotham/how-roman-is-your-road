@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Roman Is Your Road?</title>
+<meta name="description" content="What share of each county's A-roads still follows a Roman line? Itiner-e Roman roads against OpenStreetMap, with a lidar layer to see the earthworks.">
+<meta property="og:title" content="How Roman is your road?">
+<meta property="og:description" content="{{OG}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Overpass:ital,wght@0,400;0,600;0,800;1,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Two voices: inscribed Roman capitals (Cinzel) for the ancient roads, highway-sign type (Overpass) for the modern ones.
+   Imperial purple marks anything Roman; primary-route green and yellow mark A-roads, as on British road signs. */
+:root{
+  --chalk:#eef0ec; --ink:#1d2421; --muted:#59625c; --rule:#cfd5cf; --panel:#e2e6e1;
+  --roman:#6d2a5c; --roman-soft:#a46a94; --green:#00703c; --yellow:#ffd200; --link:#1f5f8b;
+  --display:"Cinzel","Trajan Pro",Georgia,serif;
+  --sans:"Overpass","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--chalk:#151a18;--ink:#e5e9e4;--muted:#a1aaa3;--rule:#36403b;--panel:#1e2522;--roman:#d58cc2;--roman-soft:#9c6a8f;--link:#7fb7e0;color-scheme:dark}}
+:root[data-theme="dark"]{--chalk:#151a18;--ink:#e5e9e4;--muted:#a1aaa3;--rule:#36403b;--panel:#1e2522;--roman:#d58cc2;--roman-soft:#9c6a8f;--link:#7fb7e0;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--chalk);color:var(--ink);font:400 18px/1.6 var(--sans);padding:0 16px}
+main{max-width:1180px;margin:0 auto;padding:40px 0 72px}
+.col{max-width:690px;margin:0 auto}
+h1{font:700 clamp(44px,8.4vw,96px)/.98 var(--display);letter-spacing:.02em;margin:0 0 22px;text-wrap:balance}
+.dek{font-size:21px;line-height:1.5;color:var(--muted);margin:0 0 20px}
+.byline{font-size:14px;color:var(--muted);border-top:3px solid var(--roman);padding-top:10px}
+h2{font:700 30px/1.15 var(--display);letter-spacing:.015em;margin:52px 0 12px;text-wrap:balance}
+p{margin:0 0 16px}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+/* road-sign chip for A-road numbers */
+.sign{display:inline-block;background:var(--green);color:var(--yellow);font:800 .82em/1 var(--sans);padding:.28em .45em .18em;border-radius:3px;border:1.5px solid #fff;box-shadow:0 0 0 1px var(--green);white-space:nowrap;vertical-align:.08em}
+.via{font:500 .95em var(--display);color:var(--roman);letter-spacing:.03em}
+/* the hero line: a straight Roman alignment drawn under the headline */
+.alignment{display:block;width:100%;height:46px;margin:6px 0 26px}
+.alignment .r{stroke:var(--roman);stroke-width:5;stroke-linecap:round}
+.alignment .m{stroke:var(--green);stroke-width:5;fill:none;stroke-linecap:round}
+@media (prefers-reduced-motion:no-preference){.alignment .m{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.4s .3s ease-out forwards}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:28px 0 10px}
+.fact{border-left:3px solid var(--roman);padding:2px 0 2px 12px}
+.fact b{display:block;font:700 34px/1.05 var(--display);color:var(--roman);font-variant-numeric:tabular-nums}
+.fact span{font-size:14px;line-height:1.4;color:var(--muted)}
+@media (max-width:640px){.facts{grid-template-columns:1fr}body{font-size:17px}}
+/* map */
+.atlas{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:0;margin:22px 0 8px;border:1px solid var(--rule);background:var(--panel)}
+#map{height:min(78vh,720px);min-height:460px;background:var(--panel)}
+.side{padding:16px 16px 18px;border-left:1px solid var(--rule);display:flex;flex-direction:column;gap:14px;max-height:min(78vh,720px);overflow:auto}
+@media (max-width:880px){.atlas{grid-template-columns:1fr}#map{height:62vh;min-height:380px}.side{border-left:0;border-top:1px solid var(--rule);max-height:none}}
+label{font-size:14px;color:var(--muted)}
+select,input[type=range]{width:100%;font:400 16px var(--sans)}
+select{padding:8px;border:1px solid var(--rule);background:var(--chalk);color:var(--ink);border-radius:4px;margin-top:4px}
+.card h3{font:700 24px/1.1 var(--display);margin:0 0 6px}
+.card .big{font:700 46px/1 var(--display);color:var(--roman);font-variant-numeric:tabular-nums}
+.card .small{font-size:14px;color:var(--muted);line-height:1.45}
+.card ul{list-style:none;margin:8px 0 0;padding:0;font-size:15px}
+.card li{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px solid var(--rule)}
+.layers{display:flex;flex-direction:column;gap:6px;font-size:15px}
+.layers label{color:var(--ink);font-size:15px;display:flex;gap:8px;align-items:center}
+.key{display:inline-block;width:22px;height:4px;border-radius:2px}
+.places{display:flex;flex-wrap:wrap;gap:6px}
+button{font:600 14px var(--sans);background:var(--chalk);color:var(--ink);border:1px solid var(--rule);border-radius:4px;padding:6px 10px;cursor:pointer}
+button:hover{border-color:var(--roman)}
+button[aria-pressed=true]{background:var(--roman);color:#fff;border-color:var(--roman)}
+.scale{display:flex;height:10px;border-radius:2px;overflow:hidden;margin-top:4px}
+.scale i{flex:1}
+.scale-lab{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.note{font-size:13px;color:var(--muted);line-height:1.45}
+.leaflet-container{font:400 13px var(--sans);background:var(--panel)}
+.leaflet-tooltip{font:400 13px var(--sans)}
+/* tables */
+.tbl{overflow-x:auto;margin:14px 0 8px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{padding:7px 8px;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap}
+th:first-child,td:first-child,th.l,td.l{text-align:left}
+th{color:var(--muted);font-weight:600;font-size:13px}
+td .bar{display:inline-block;height:8px;background:var(--roman);border-radius:1px;vertical-align:middle;margin-right:6px}
+th button{all:unset;cursor:pointer;color:var(--muted);font-weight:600}
+th button:focus-visible{outline:3px solid var(--yellow)}
+.method{background:var(--panel);padding:18px 22px;margin:34px 0;border-left:3px solid var(--roman)}
+.method h3{font:700 22px/1.1 var(--display);margin:0 0 10px}
+.method p,.method li{font-size:15px;line-height:1.6}
+.method ul{margin:0;padding-left:20px}
+.notes{font-size:14px;color:var(--muted)}
+.notes li{margin-bottom:6px}
+figure{margin:24px 0}
+figcaption{font-size:14px;color:var(--muted);margin-top:6px}
+</style>
+</head>
+<body>
+<main>
+  <div class="col">
+    <h1>How Roman is your road?</h1>
+    <svg class="alignment" viewBox="0 0 690 46" preserveAspectRatio="none" aria-hidden="true">
+      <line class="r" x1="4" y1="23" x2="686" y2="23"/>
+      <path class="m" d="M4 40 C 90 40, 120 23, 190 23 L 430 23 C 500 23, 520 6, 600 6 S 670 23, 686 23"/>
+    </svg>
+    <p class="dek">Nearly two thousand years on, some of Britain's main roads still run where Roman surveyors set them out. Here is how much of each county's A-road network follows a Roman line, and where you can still see the old road in the ground.</p>
+    <div class="byline">Tristan Hotham · Researcher of campaigns and platforms · 2026</div>
+
+    {{INTRO}}
+
+    <div class="facts">{{FACTS}}</div>
+  </div>
+
+  <h2 class="col" style="margin-bottom:6px">Check your county</h2>
+  <p class="col">Pick a county or click the map. Purple lines are the Roman roads; green lines are the stretches of today's A-roads that run along them. Switch on the lidar layer and zoom in to see the ground surface with trees and buildings stripped away.</p>
+  <div class="atlas">
+    <div id="map" role="region" aria-label="Map of Roman roads and A-roads by county"></div>
+    <aside class="side">
+      <div>
+        <label for="pick">County</label>
+        <select id="pick"><option value="">All of Great Britain</option></select>
+      </div>
+      <div class="card" id="card" aria-live="polite"></div>
+      <div>
+        <div class="scale" id="scale"></div>
+        <div class="scale-lab"><span>0%</span><span>Share of A-road length on a Roman line</span><span id="scalemax"></span></div>
+      </div>
+      <div class="layers">
+        <label><input type="checkbox" id="lyr-roman" checked> <span class="key" style="background:var(--roman)"></span> Roman roads (Itiner-e)</label>
+        <label><input type="checkbox" id="lyr-match" checked> <span class="key" style="background:var(--green)"></span> A-roads on a Roman line</label>
+        <label><input type="checkbox" id="lyr-shade" checked> <span class="key" style="background:linear-gradient(90deg,#f1eef5,var(--roman))"></span> County shading</label>
+        <label><input type="checkbox" id="lyr-lidar"> <span class="key" style="background:#888"></span> Lidar hillshade (England)</label>
+        <label for="lidar-op" style="padding-left:30px">Lidar strength</label>
+        <input id="lidar-op" type="range" min="0.2" max="1" step="0.05" value="0.85" style="margin-left:30px;width:calc(100% - 30px)" disabled>
+      </div>
+      <div>
+        <label>See the old road in the ground</label>
+        <div class="places" id="places"></div>
+        <p class="note" id="placenote" style="margin:8px 0 0"></p>
+      </div>
+    </aside>
+  </div>
+  <p class="col note">Lidar: Environment Agency composite 1 m DTM hillshade, England only. It appears from zoom level 13; tiles can take a few seconds to draw.</p>
+
+  <div class="col">
+    {{BODY}}
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const RES = {{RES}};
+const PLACES = {{PLACES}};
+const fmt = (n, d=1) => n.toLocaleString('en-GB', {minimumFractionDigits:d, maximumFractionDigits:d});
+const sign = r => `<span class="sign">${r}</span>`;
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const byName = Object.fromEntries(RES.counties.map(c => [c.county, c]));
+const maxShare = Math.max(...RES.counties.map(c => c.share));
+const top = Math.ceil(maxShare / 5) * 5;
+document.getElementById('scalemax').textContent = top + '%';
+
+// purple ramp, light to dark, for the county shading
+const RAMP = ['#f3eef4','#e3d2e2','#cdaeca','#b487af','#985f91','#7a3c73','#5c2257'];
+const col = s => RAMP[Math.min(RAMP.length - 1, Math.floor(s / top * RAMP.length))];
+document.getElementById('scale').innerHTML = RAMP.map(c => `<i style="background:${c}"></i>`).join('');
+
+const map = L.map('map', {zoomSnap:.5, minZoom:5, maxZoom:17, scrollWheelZoom:false}).fitBounds([[49.9,-6.4],[58.7,1.8]]);
+map.on('focus', () => map.scrollWheelZoom.enable());
+map.attributionControl.setPrefix(false);
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+L.tileLayer(`https://{s}.basemaps.cartocdn.com/${dark ? 'dark' : 'light'}_nolabels/{z}/{x}/{y}{r}.png`, {subdomains:'abcd', maxZoom:19,
+  attribution:'Base map © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, © <a href="https://carto.com/attributions">CARTO</a>'}).addTo(map);
+
+map.createPane('lidar'); map.getPane('lidar').style.zIndex = 350;
+map.createPane('lines'); map.getPane('lines').style.zIndex = 450;
+map.createPane('labels'); map.getPane('labels').style.zIndex = 460; map.getPane('labels').style.pointerEvents = 'none';
+const lidar = L.tileLayer.wms('https://environment.data.gov.uk/spatialdata/lidar-composite-digital-terrain-model-dtm-1m/wms', {
+  layers:'Lidar_Composite_Hillshade_DTM_1m', styles:'', format:'image/png', transparent:true, version:'1.3.0', pane:'lidar',
+  minZoom:13, maxZoom:19, opacity:.85,
+  attribution:'Lidar © Environment Agency, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL v3</a>'});
+const labels = L.tileLayer(`https://{s}.basemaps.cartocdn.com/${dark ? 'dark' : 'light'}_only_labels/{z}/{x}/{y}{r}.png`, {subdomains:'abcd', pane:'labels', maxZoom:19}).addTo(map);
+
+let counties, roman, match, selected = null;
+const style = f => ({color: css('--chalk') || '#fff', weight:1, fillOpacity: shadeOn ? .78 : 0, fillColor: col(byName[f.properties.county]?.share || 0)});
+let shadeOn = true;
+
+function card(name) {
+  const el = document.getElementById('card');
+  if (!name) {
+    const t = RES.total;
+    el.innerHTML = `<h3>Great Britain</h3><div class="big">${fmt(t.share)}%</div>
+      <div class="small">of ${fmt(t.km, 0)} km of A-road runs along a Roman line: about ${fmt(t.roman_km, 0)} km.</div>
+      <ul>${RES.roads.slice(0, 5).map(r => `<li><span>${sign(r.ref1)}</span><span>${fmt(r.roman_km, 0)} km Roman</span></li>`).join('')}</ul>`;
+    return;
+  }
+  const c = byName[name]; if (!c) return;
+  const rank = RES.counties.findIndex(x => x.county === name) + 1;
+  el.innerHTML = `<h3>${name}</h3><div class="big">${fmt(c.share)}%</div>
+    <div class="small">${fmt(c.roman_km)} km of ${fmt(c.km, 0)} km of A-road follows a Roman line. Ranked ${rank} of ${RES.counties.length}.</div>
+    ${c.top && c.top.length ? `<ul>${c.top.map(([r, k]) => `<li><span>${sign(r)}</span><span>${fmt(k)} km</span></li>`).join('')}</ul>` : `<p class="small" style="margin:8px 0 0">No A-road here follows a mapped Roman road.</p>`}`;
+}
+
+function choose(name, fly = true) {
+  selected = name || null;
+  document.getElementById('pick').value = selected || '';
+  card(selected);
+  if (!counties) return;
+  counties.eachLayer(l => {
+    const on = l.feature.properties.county === selected;
+    l.setStyle({weight: on ? 3 : 1, color: on ? css('--ink') : (css('--chalk') || '#fff')});
+    if (on) { l.bringToFront(); if (fly) map.flyToBounds(l.getBounds(), {padding:[20, 20], duration:.8}); }
+  });
+  if (!selected && fly) map.flyToBounds([[49.9,-6.4],[58.7,1.8]], {duration:.8});
+}
+
+const pick = document.getElementById('pick');
+[...RES.counties].sort((a, b) => a.county.localeCompare(b.county)).forEach(c => pick.add(new Option(`${c.county} (${c.nation})`, c.county)));
+pick.addEventListener('change', e => choose(e.target.value));
+
+Promise.all(['map/counties.geojson', 'map/roman_roads.geojson', 'map/roman_aroads.geojson'].map(u => fetch(u).then(r => r.json()))).then(([cg, rg, mg]) => {
+  counties = L.geoJSON(cg, {style, onEachFeature: (f, l) => {
+    const c = byName[f.properties.county];
+    l.bindTooltip(`<b>${f.properties.county}</b><br>${c ? fmt(c.share) + '% Roman' : ''}`, {sticky:true});
+    l.on('click', () => choose(f.properties.county, false));
+  }}).addTo(map);
+  roman = L.geoJSON(rg, {pane:'lines', interactive:true, style: f => ({color: css('--roman'), weight: f.properties.type === 'Main Road' ? 2.6 : 1.8, opacity:.95, dashArray: f.properties.cert === 'Hypothetical' ? '4 5' : null}),
+    onEachFeature: (f, l) => l.bindTooltip(`<b>${f.properties.name || 'Roman road'}</b><br>${f.properties.type}, ${f.properties.cert.toLowerCase()}`, {sticky:true})}).addTo(map);
+  match = L.geoJSON(mg, {pane:'lines', style: {color: css('--green'), weight: 4, opacity: .95},
+    onEachFeature: (f, l) => l.bindTooltip(`${f.properties.ref} on a Roman line`, {sticky:true})}).addTo(map);
+  choose(selected, false);
+});
+card(null);
+
+const tog = (id, fn) => document.getElementById(id).addEventListener('change', e => fn(e.target.checked));
+tog('lyr-roman', on => on ? roman.addTo(map) : roman.remove());
+tog('lyr-match', on => on ? match.addTo(map) : match.remove());
+tog('lyr-shade', on => { shadeOn = on; counties.setStyle(style); choose(selected, false); });
+const op = document.getElementById('lidar-op');
+tog('lyr-lidar', on => { op.disabled = !on; if (on) { lidar.addTo(map); if (map.getZoom() < 13) map.setZoom(13); } else lidar.remove(); });
+op.addEventListener('input', e => lidar.setOpacity(+e.target.value));
+
+const placesEl = document.getElementById('places');
+PLACES.forEach(p => {
+  const b = document.createElement('button'); b.type = 'button'; b.textContent = p.name; b.setAttribute('aria-pressed', 'false');
+  b.addEventListener('click', () => {
+    placesEl.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    document.getElementById('lyr-lidar').checked = true; op.disabled = false; lidar.addTo(map);
+    document.getElementById('lyr-shade').checked = false; shadeOn = false; counties && counties.setStyle(style);
+    map.flyTo([p.lat, p.lon], p.z || 15, {duration:1.2});
+    document.getElementById('placenote').innerHTML = p.note;
+  });
+  placesEl.appendChild(b);
+});
+
+// sortable county table
+const tb = document.getElementById('ctable');
+if (tb) {
+  let key = 'share', dir = -1;
+  const draw = () => {
+    const rows = [...RES.counties].sort((a, b) => dir * ((a[key] > b[key]) - (a[key] < b[key])));
+    tb.querySelector('tbody').innerHTML = rows.map(c => `<tr><td>${c.county}</td><td class="l">${c.nation}</td><td>${fmt(c.km, 0)}</td><td>${fmt(c.roman_km)}</td><td><span class="bar" style="width:${(c.share / maxShare * 60).toFixed(1)}px"></span>${fmt(c.share)}%</td></tr>`).join('');
+  };
+  tb.querySelectorAll('th button').forEach(b => b.addEventListener('click', () => { const k = b.dataset.k; dir = key === k ? -dir : (k === 'county' || k === 'nation' ? 1 : -1); key = k; draw(); }));
+  draw();
+}
+</script>
+</body>
+</html>
