@@ -1,0 +1,2060 @@
+{
+ "buffer_m": 20.0,
+ "angle_deg": 20.0,
+ "total": {
+  "km": 46684.296462982915,
+  "roman_km": 1702.4834128227667,
+  "share": 3.646801048341183
+ },
+ "nations": [
+  {
+   "nation": "England",
+   "km": 32151.73,
+   "roman_km": 1526.71,
+   "share": 4.75
+  },
+  {
+   "nation": "Scotland",
+   "km": 10364.44,
+   "roman_km": 46.52,
+   "share": 0.45
+  },
+  {
+   "nation": "Wales",
+   "km": 4168.13,
+   "roman_km": 129.25,
+   "share": 3.1
+  }
+ ],
+ "counties": [
+  {
+   "county": "Gloucestershire",
+   "nation": "England",
+   "km": 715.96,
+   "roman_km": 93.0,
+   "roman_km_conj": 92.6,
+   "share": 12.99,
+   "share_conj": 12.93,
+   "top": [
+    [
+     "A429",
+     36.4
+    ],
+    [
+     "A38",
+     20.1
+    ],
+    [
+     "A46",
+     13.0
+    ],
+    [
+     "A431",
+     3.7
+    ]
+   ]
+  },
+  {
+   "county": "Cambridgeshire",
+   "nation": "England",
+   "km": 725.21,
+   "roman_km": 77.34,
+   "roman_km_conj": 77.34,
+   "share": 10.66,
+   "share_conj": 10.66,
+   "top": [
+    [
+     "A1198",
+     23.4
+    ],
+    [
+     "A11",
+     10.7
+    ],
+    [
+     "A1307",
+     9.8
+    ],
+    [
+     "A1304",
+     8.8
+    ]
+   ]
+  },
+  {
+   "county": "Hertfordshire",
+   "nation": "England",
+   "km": 511.9,
+   "roman_km": 53.09,
+   "roman_km_conj": 53.07,
+   "share": 10.37,
+   "share_conj": 10.37,
+   "top": [
+    [
+     "A5183",
+     16.4
+    ],
+    [
+     "A10",
+     11.6
+    ],
+    [
+     "A411",
+     3.7
+    ],
+    [
+     "A505",
+     3.6
+    ]
+   ]
+  },
+  {
+   "county": "South Glamorgan",
+   "nation": "Wales",
+   "km": 160.55,
+   "roman_km": 13.67,
+   "roman_km_conj": 13.6,
+   "share": 8.51,
+   "share_conj": 8.47,
+   "top": [
+    [
+     "A48",
+     5.6
+    ],
+    [
+     "A469",
+     3.0
+    ],
+    [
+     "A4161",
+     2.6
+    ],
+    [
+     "A4222",
+     1.2
+    ]
+   ]
+  },
+  {
+   "county": "Cumbria",
+   "nation": "England",
+   "km": 1011.21,
+   "roman_km": 83.23,
+   "roman_km_conj": 83.12,
+   "share": 8.23,
+   "share_conj": 8.22,
+   "top": [
+    [
+     "A595",
+     24.3
+    ],
+    [
+     "A6",
+     20.6
+    ],
+    [
+     "A66",
+     19.5
+    ],
+    [
+     "A7",
+     8.1
+    ]
+   ]
+  },
+  {
+   "county": "East Riding of Yorkshire",
+   "nation": "England",
+   "km": 416.62,
+   "roman_km": 32.9,
+   "roman_km_conj": 32.9,
+   "share": 7.9,
+   "share_conj": 7.9,
+   "top": [
+    [
+     "A166",
+     16.4
+    ],
+    [
+     "A1034",
+     8.9
+    ],
+    [
+     "A1079",
+     7.6
+    ],
+    [
+     "A614",
+     0.0
+    ]
+   ]
+  },
+  {
+   "county": "North Yorkshire",
+   "nation": "England",
+   "km": 1351.67,
+   "roman_km": 105.63,
+   "roman_km_conj": 105.63,
+   "share": 7.82,
+   "share_conj": 7.82,
+   "top": [
+    [
+     "A64",
+     19.8
+    ],
+    [
+     "A59",
+     15.1
+    ],
+    [
+     "A1(M)",
+     13.3
+    ],
+    [
+     "A66",
+     9.3
+    ]
+   ]
+  },
+  {
+   "county": "Rutland",
+   "nation": "England",
+   "km": 91.73,
+   "roman_km": 6.85,
+   "roman_km_conj": 6.85,
+   "share": 7.47,
+   "share_conj": 7.47,
+   "top": [
+    [
+     "A1",
+     6.9
+    ]
+   ]
+  },
+  {
+   "county": "Bedfordshire",
+   "nation": "England",
+   "km": 295.19,
+   "roman_km": 21.68,
+   "roman_km_conj": 21.68,
+   "share": 7.34,
+   "share_conj": 7.34,
+   "top": [
+    [
+     "A5",
+     7.7
+    ],
+    [
+     "A600",
+     3.8
+    ],
+    [
+     "A5183",
+     3.7
+    ],
+    [
+     "A505",
+     2.2
+    ]
+   ]
+  },
+  {
+   "county": "Lincolnshire",
+   "nation": "England",
+   "km": 1360.52,
+   "roman_km": 99.25,
+   "roman_km_conj": 99.25,
+   "share": 7.3,
+   "share_conj": 7.3,
+   "top": [
+    [
+     "A15",
+     43.4
+    ],
+    [
+     "A1500",
+     11.0
+    ],
+    [
+     "A52",
+     10.1
+    ],
+    [
+     "A1434",
+     8.5
+    ]
+   ]
+  },
+  {
+   "county": "Warwickshire",
+   "nation": "England",
+   "km": 475.86,
+   "roman_km": 32.45,
+   "roman_km_conj": 32.47,
+   "share": 6.82,
+   "share_conj": 6.82,
+   "top": [
+    [
+     "A5",
+     16.6
+    ],
+    [
+     "A429",
+     5.6
+    ],
+    [
+     "A435",
+     4.5
+    ],
+    [
+     "A46",
+     3.5
+    ]
+   ]
+  },
+  {
+   "county": "Kent",
+   "nation": "England",
+   "km": 1000.4,
+   "roman_km": 67.53,
+   "roman_km_conj": 67.54,
+   "share": 6.75,
+   "share_conj": 6.75,
+   "top": [
+    [
+     "A2",
+     29.7
+    ],
+    [
+     "A257",
+     11.0
+    ],
+    [
+     "A28",
+     10.1
+    ],
+    [
+     "A229",
+     7.9
+    ]
+   ]
+  },
+  {
+   "county": "Leicestershire",
+   "nation": "England",
+   "km": 487.88,
+   "roman_km": 31.04,
+   "roman_km_conj": 29.33,
+   "share": 6.36,
+   "share_conj": 6.01,
+   "top": [
+    [
+     "A5",
+     9.6
+    ],
+    [
+     "A426",
+     7.5
+    ],
+    [
+     "A46",
+     5.9
+    ],
+    [
+     "A607",
+     4.0
+    ]
+   ]
+  },
+  {
+   "county": "Staffordshire",
+   "nation": "England",
+   "km": 856.6,
+   "roman_km": 53.6,
+   "roman_km_conj": 53.6,
+   "share": 6.26,
+   "share_conj": 6.26,
+   "top": [
+    [
+     "A5",
+     25.4
+    ],
+    [
+     "A38",
+     8.4
+    ],
+    [
+     "A520",
+     7.0
+    ],
+    [
+     "A53",
+     6.1
+    ]
+   ]
+  },
+  {
+   "county": "Suffolk",
+   "nation": "England",
+   "km": 698.68,
+   "roman_km": 40.64,
+   "roman_km_conj": 40.64,
+   "share": 5.82,
+   "share_conj": 5.82,
+   "top": [
+    [
+     "A140",
+     11.2
+    ],
+    [
+     "A1120",
+     6.1
+    ],
+    [
+     "A11",
+     5.5
+    ],
+    [
+     "A12",
+     4.7
+    ]
+   ]
+  },
+  {
+   "county": "South Lanarkshire",
+   "nation": "Scotland",
+   "km": 332.61,
+   "roman_km": 19.32,
+   "roman_km_conj": 19.32,
+   "share": 5.81,
+   "share_conj": 5.81,
+   "top": [
+    [
+     "A702",
+     16.5
+    ],
+    [
+     "A721",
+     2.2
+    ],
+    [
+     "A74(M)",
+     0.6
+    ]
+   ]
+  },
+  {
+   "county": "West Sussex",
+   "nation": "England",
+   "km": 549.52,
+   "roman_km": 31.36,
+   "roman_km_conj": 31.36,
+   "share": 5.71,
+   "share_conj": 5.71,
+   "top": [
+    [
+     "A29",
+     12.9
+    ],
+    [
+     "A259",
+     5.4
+    ],
+    [
+     "A27",
+     4.1
+    ],
+    [
+     "A285",
+     4.0
+    ]
+   ]
+  },
+  {
+   "county": "Somerset",
+   "nation": "England",
+   "km": 931.36,
+   "roman_km": 49.41,
+   "roman_km_conj": 49.41,
+   "share": 5.31,
+   "share_conj": 5.31,
+   "top": [
+    [
+     "A37",
+     19.8
+    ],
+    [
+     "A367",
+     9.2
+    ],
+    [
+     "A39",
+     8.6
+    ],
+    [
+     "A303",
+     5.8
+    ]
+   ]
+  },
+  {
+   "county": "Greater London",
+   "nation": "England",
+   "km": 1648.54,
+   "roman_km": 86.32,
+   "roman_km_conj": 86.05,
+   "share": 5.24,
+   "share_conj": 5.22,
+   "top": [
+    [
+     "A315",
+     15.5
+    ],
+    [
+     "A5",
+     14.7
+    ],
+    [
+     "A23",
+     7.8
+    ],
+    [
+     "A207",
+     7.8
+    ]
+   ]
+  },
+  {
+   "county": "Gwent",
+   "nation": "Wales",
+   "km": 398.96,
+   "roman_km": 20.22,
+   "roman_km_conj": 20.23,
+   "share": 5.07,
+   "share_conj": 5.07,
+   "top": [
+    [
+     "A465",
+     8.4
+    ],
+    [
+     "A40",
+     4.7
+    ],
+    [
+     "A48",
+     2.9
+    ],
+    [
+     "A466",
+     2.8
+    ]
+   ]
+  },
+  {
+   "county": "Dorset",
+   "nation": "England",
+   "km": 528.74,
+   "roman_km": 26.1,
+   "roman_km_conj": 26.1,
+   "share": 4.94,
+   "share_conj": 4.94,
+   "top": [
+    [
+     "A37",
+     12.0
+    ],
+    [
+     "A35",
+     8.6
+    ],
+    [
+     "A354",
+     4.8
+    ],
+    [
+     "A3052",
+     0.6
+    ]
+   ]
+  },
+  {
+   "county": "Northumberland",
+   "nation": "England",
+   "km": 590.38,
+   "roman_km": 29.1,
+   "roman_km_conj": 29.1,
+   "share": 4.93,
+   "share_conj": 4.93,
+   "top": [
+    [
+     "A68",
+     22.6
+    ],
+    [
+     "A697",
+     3.3
+    ],
+    [
+     "A689",
+     2.3
+    ],
+    [
+     "A695",
+     0.5
+    ]
+   ]
+  },
+  {
+   "county": "Buckinghamshire",
+   "nation": "England",
+   "km": 439.77,
+   "roman_km": 21.37,
+   "roman_km_conj": 21.37,
+   "share": 4.86,
+   "share_conj": 4.86,
+   "top": [
+    [
+     "A41",
+     9.6
+    ],
+    [
+     "A421",
+     7.5
+    ],
+    [
+     "A5",
+     1.6
+    ],
+    [
+     "A404",
+     1.3
+    ]
+   ]
+  },
+  {
+   "county": "Cheshire",
+   "nation": "England",
+   "km": 879.98,
+   "roman_km": 42.27,
+   "roman_km_conj": 42.27,
+   "share": 4.8,
+   "share_conj": 4.8,
+   "top": [
+    [
+     "A56",
+     15.1
+    ],
+    [
+     "A556",
+     7.9
+    ],
+    [
+     "A559",
+     6.0
+    ],
+    [
+     "A51",
+     5.3
+    ]
+   ]
+  },
+  {
+   "county": "Essex",
+   "nation": "England",
+   "km": 739.04,
+   "roman_km": 35.21,
+   "roman_km_conj": 35.2,
+   "share": 4.76,
+   "share_conj": 4.76,
+   "top": [
+    [
+     "A12",
+     9.2
+    ],
+    [
+     "A120",
+     9.1
+    ],
+    [
+     "A1017",
+     4.8
+    ],
+    [
+     "A1232",
+     3.2
+    ]
+   ]
+  },
+  {
+   "county": "Northamptonshire",
+   "nation": "England",
+   "km": 666.96,
+   "roman_km": 30.56,
+   "roman_km_conj": 30.56,
+   "share": 4.58,
+   "share_conj": 4.58,
+   "top": [
+    [
+     "A5",
+     23.6
+    ],
+    [
+     "A605",
+     2.7
+    ],
+    [
+     "A427",
+     1.6
+    ],
+    [
+     "A45",
+     1.5
+    ]
+   ]
+  },
+  {
+   "county": "Dyfed",
+   "nation": "Wales",
+   "km": 926.0,
+   "roman_km": 41.56,
+   "roman_km_conj": 41.56,
+   "share": 4.49,
+   "share_conj": 4.49,
+   "top": [
+    [
+     "A485",
+     19.0
+    ],
+    [
+     "A40",
+     10.1
+    ],
+    [
+     "A487",
+     7.7
+    ],
+    [
+     "A483",
+     2.7
+    ]
+   ]
+  },
+  {
+   "county": "Herefordshire",
+   "nation": "England",
+   "km": 448.11,
+   "roman_km": 20.11,
+   "roman_km_conj": 20.11,
+   "share": 4.49,
+   "share_conj": 4.49,
+   "top": [
+    [
+     "A4110",
+     9.3
+    ],
+    [
+     "A438",
+     4.6
+    ],
+    [
+     "A4103",
+     2.6
+    ],
+    [
+     "A40",
+     1.1
+    ]
+   ]
+  },
+  {
+   "county": "Durham",
+   "nation": "England",
+   "km": 664.77,
+   "roman_km": 29.02,
+   "roman_km_conj": 29.02,
+   "share": 4.37,
+   "share_conj": 4.37,
+   "top": [
+    [
+     "A66",
+     13.8
+    ],
+    [
+     "A67",
+     4.5
+    ],
+    [
+     "A177",
+     3.9
+    ],
+    [
+     "A167",
+     3.2
+    ]
+   ]
+  },
+  {
+   "county": "Shropshire",
+   "nation": "England",
+   "km": 629.88,
+   "roman_km": 25.81,
+   "roman_km_conj": 25.81,
+   "share": 4.1,
+   "share_conj": 4.1,
+   "top": [
+    [
+     "A49",
+     11.4
+    ],
+    [
+     "A41",
+     7.3
+    ],
+    [
+     "A5",
+     7.0
+    ],
+    [
+     "A442",
+     0.2
+    ]
+   ]
+  },
+  {
+   "county": "Midlothian",
+   "nation": "Scotland",
+   "km": 116.21,
+   "roman_km": 4.48,
+   "roman_km_conj": 4.48,
+   "share": 3.86,
+   "share_conj": 3.86,
+   "top": [
+    [
+     "A702",
+     4.0
+    ],
+    [
+     "A68",
+     0.5
+    ],
+    [
+     "A6094",
+     0.0
+    ]
+   ]
+  },
+  {
+   "county": "South Yorkshire",
+   "nation": "England",
+   "km": 584.32,
+   "roman_km": 22.02,
+   "roman_km_conj": 22.02,
+   "share": 3.77,
+   "share_conj": 3.77,
+   "top": [
+    [
+     "A630",
+     8.9
+    ],
+    [
+     "A638",
+     5.6
+    ],
+    [
+     "A1",
+     3.1
+    ],
+    [
+     "A618",
+     2.8
+    ]
+   ]
+  },
+  {
+   "county": "Derbyshire",
+   "nation": "England",
+   "km": 780.7,
+   "roman_km": 28.56,
+   "roman_km_conj": 28.42,
+   "share": 3.66,
+   "share_conj": 3.64,
+   "top": [
+    [
+     "A6",
+     5.3
+    ],
+    [
+     "A6005",
+     4.5
+    ],
+    [
+     "A53",
+     4.0
+    ],
+    [
+     "A61",
+     3.3
+    ]
+   ]
+  },
+  {
+   "county": "Powys",
+   "nation": "Wales",
+   "km": 658.56,
+   "roman_km": 23.71,
+   "roman_km_conj": 23.5,
+   "share": 3.6,
+   "share_conj": 3.57,
+   "top": [
+    [
+     "A470",
+     7.5
+    ],
+    [
+     "A40",
+     3.7
+    ],
+    [
+     "A489",
+     3.3
+    ],
+    [
+     "A483",
+     2.9
+    ]
+   ]
+  },
+  {
+   "county": "Devon",
+   "nation": "England",
+   "km": 1202.22,
+   "roman_km": 40.93,
+   "roman_km_conj": 40.96,
+   "share": 3.4,
+   "share_conj": 3.41,
+   "top": [
+    [
+     "A3052",
+     22.1
+    ],
+    [
+     "A358",
+     5.0
+    ],
+    [
+     "A35",
+     5.0
+    ],
+    [
+     "A377",
+     2.5
+    ]
+   ]
+  },
+  {
+   "county": "Greater Manchester",
+   "nation": "England",
+   "km": 878.39,
+   "roman_km": 28.51,
+   "roman_km_conj": 28.51,
+   "share": 3.25,
+   "share_conj": 3.25,
+   "top": [
+    [
+     "A56",
+     13.4
+    ],
+    [
+     "A6",
+     7.1
+    ],
+    [
+     "A57",
+     3.2
+    ],
+    [
+     "A34",
+     3.0
+    ]
+   ]
+  },
+  {
+   "county": "Tyne and Wear",
+   "nation": "England",
+   "km": 408.91,
+   "roman_km": 11.86,
+   "roman_km_conj": 11.86,
+   "share": 2.9,
+   "share_conj": 2.9,
+   "top": [
+    [
+     "A167",
+     8.5
+    ],
+    [
+     "A194",
+     3.0
+    ],
+    [
+     "A187",
+     0.2
+    ],
+    [
+     "A193",
+     0.0
+    ]
+   ]
+  },
+  {
+   "county": "Norfolk",
+   "nation": "England",
+   "km": 942.5,
+   "roman_km": 24.78,
+   "roman_km_conj": 24.78,
+   "share": 2.63,
+   "share_conj": 2.63,
+   "top": [
+    [
+     "A140",
+     10.1
+    ],
+    [
+     "A11",
+     9.9
+    ],
+    [
+     "A1122",
+     4.1
+    ],
+    [
+     "A149",
+     0.6
+    ]
+   ]
+  },
+  {
+   "county": "Lancashire",
+   "nation": "England",
+   "km": 804.22,
+   "roman_km": 20.48,
+   "roman_km_conj": 20.48,
+   "share": 2.55,
+   "share_conj": 2.55,
+   "top": [
+    [
+     "A6",
+     8.8
+    ],
+    [
+     "A683",
+     4.7
+    ],
+    [
+     "A65",
+     3.3
+    ],
+    [
+     "A49",
+     2.6
+    ]
+   ]
+  },
+  {
+   "county": "Wiltshire",
+   "nation": "England",
+   "km": 732.31,
+   "roman_km": 18.45,
+   "roman_km_conj": 18.45,
+   "share": 2.52,
+   "share_conj": 2.52,
+   "top": [
+    [
+     "A419",
+     7.3
+    ],
+    [
+     "A345",
+     5.3
+    ],
+    [
+     "A346",
+     2.9
+    ],
+    [
+     "A4",
+     2.6
+    ]
+   ]
+  },
+  {
+   "county": "West Yorkshire",
+   "nation": "England",
+   "km": 986.4,
+   "roman_km": 22.27,
+   "roman_km_conj": 22.31,
+   "share": 2.26,
+   "share_conj": 2.26,
+   "top": [
+    [
+     "A639",
+     6.9
+    ],
+    [
+     "A656",
+     4.2
+    ],
+    [
+     "A58",
+     4.1
+    ],
+    [
+     "A643",
+     2.9
+    ]
+   ]
+  },
+  {
+   "county": "Surrey",
+   "nation": "England",
+   "km": 594.49,
+   "roman_km": 12.13,
+   "roman_km_conj": 12.13,
+   "share": 2.04,
+   "share_conj": 2.04,
+   "top": [
+    [
+     "A30",
+     4.2
+    ],
+    [
+     "A29",
+     3.8
+    ],
+    [
+     "A22",
+     2.1
+    ],
+    [
+     "A308",
+     1.4
+    ]
+   ]
+  },
+  {
+   "county": "Berkshire",
+   "nation": "England",
+   "km": 389.42,
+   "roman_km": 7.91,
+   "roman_km_conj": 7.91,
+   "share": 2.03,
+   "share_conj": 2.03,
+   "top": [
+    [
+     "A340",
+     3.9
+    ],
+    [
+     "A321",
+     3.0
+    ],
+    [
+     "A329",
+     1.0
+    ],
+    [
+     "A4130",
+     0.1
+    ]
+   ]
+  },
+  {
+   "county": "Hampshire",
+   "nation": "England",
+   "km": 896.46,
+   "roman_km": 18.12,
+   "roman_km_conj": 18.12,
+   "share": 2.02,
+   "share_conj": 2.02,
+   "top": [
+    [
+     "A33",
+     7.6
+    ],
+    [
+     "A272",
+     5.4
+    ],
+    [
+     "A30",
+     2.0
+    ],
+    [
+     "A259",
+     1.5
+    ]
+   ]
+  },
+  {
+   "county": "Oxfordshire",
+   "nation": "England",
+   "km": 631.56,
+   "roman_km": 12.43,
+   "roman_km_conj": 12.43,
+   "share": 1.97,
+   "share_conj": 1.97,
+   "top": [
+    [
+     "A41",
+     3.8
+    ],
+    [
+     "A4421",
+     3.8
+    ],
+    [
+     "A329",
+     2.6
+    ],
+    [
+     "A4130",
+     1.4
+    ]
+   ]
+  },
+  {
+   "county": "Nottinghamshire",
+   "nation": "England",
+   "km": 697.34,
+   "roman_km": 13.39,
+   "roman_km_conj": 13.39,
+   "share": 1.92,
+   "share_conj": 1.92,
+   "top": [
+    [
+     "A46",
+     10.6
+    ],
+    [
+     "A631",
+     1.9
+    ],
+    [
+     "A634",
+     0.7
+    ],
+    [
+     "A6097",
+     0.2
+    ]
+   ]
+  },
+  {
+   "county": "East Sussex",
+   "nation": "England",
+   "km": 500.83,
+   "roman_km": 9.38,
+   "roman_km_conj": 9.4,
+   "share": 1.87,
+   "share_conj": 1.88,
+   "top": [
+    [
+     "A27",
+     3.0
+    ],
+    [
+     "A23",
+     2.9
+    ],
+    [
+     "A270",
+     2.7
+    ],
+    [
+     "A26",
+     0.6
+    ]
+   ]
+  },
+  {
+   "county": "Gwynedd",
+   "nation": "Wales",
+   "km": 698.29,
+   "roman_km": 12.57,
+   "roman_km_conj": 12.57,
+   "share": 1.8,
+   "share_conj": 1.8,
+   "top": [
+    [
+     "A4085",
+     4.7
+    ],
+    [
+     "A494",
+     2.8
+    ],
+    [
+     "A470",
+     2.6
+    ],
+    [
+     "A493",
+     2.1
+    ]
+   ]
+  },
+  {
+   "county": "Dumfries and Galloway",
+   "nation": "Scotland",
+   "km": 836.64,
+   "roman_km": 13.41,
+   "roman_km_conj": 13.41,
+   "share": 1.6,
+   "share_conj": 1.6,
+   "top": [
+    [
+     "A76",
+     9.9
+    ],
+    [
+     "A702",
+     3.2
+    ],
+    [
+     "A74(M)",
+     0.4
+    ]
+   ]
+  },
+  {
+   "county": "Clwyd",
+   "nation": "Wales",
+   "km": 758.61,
+   "roman_km": 11.53,
+   "roman_km_conj": 11.53,
+   "share": 1.52,
+   "share_conj": 1.52,
+   "top": [
+    [
+     "A525",
+     2.9
+    ],
+    [
+     "A548",
+     2.6
+    ],
+    [
+     "A5026",
+     2.3
+    ],
+    [
+     "A5104",
+     1.0
+    ]
+   ]
+  },
+  {
+   "county": "West Glamorgan",
+   "nation": "Wales",
+   "km": 236.39,
+   "roman_km": 3.47,
+   "roman_km_conj": 3.27,
+   "share": 1.47,
+   "share_conj": 1.38,
+   "top": [
+    [
+     "A48",
+     1.3
+    ],
+    [
+     "A4230",
+     0.8
+    ],
+    [
+     "A474",
+     0.7
+    ],
+    [
+     "A4109",
+     0.5
+    ]
+   ]
+  },
+  {
+   "county": "Scottish Borders",
+   "nation": "Scotland",
+   "km": 616.87,
+   "roman_km": 7.01,
+   "roman_km_conj": 7.01,
+   "share": 1.14,
+   "share_conj": 1.14,
+   "top": [
+    [
+     "A72",
+     2.0
+    ],
+    [
+     "A702",
+     1.9
+    ],
+    [
+     "A68",
+     1.8
+    ],
+    [
+     "A721",
+     1.2
+    ]
+   ]
+  },
+  {
+   "county": "North Lanarkshire",
+   "nation": "Scotland",
+   "km": 152.44,
+   "roman_km": 1.34,
+   "roman_km_conj": 1.34,
+   "share": 0.88,
+   "share_conj": 0.88,
+   "top": [
+    [
+     "A721",
+     1.3
+    ]
+   ]
+  },
+  {
+   "county": "West Midlands",
+   "nation": "England",
+   "km": 606.48,
+   "roman_km": 5.18,
+   "roman_km_conj": 5.18,
+   "share": 0.85,
+   "share_conj": 0.85,
+   "top": [
+    [
+     "A5",
+     2.8
+    ],
+    [
+     "A38",
+     1.5
+    ],
+    [
+     "A441",
+     0.9
+    ]
+   ]
+  },
+  {
+   "county": "Mid Glamorgan",
+   "nation": "Wales",
+   "km": 330.76,
+   "roman_km": 2.52,
+   "roman_km_conj": 2.52,
+   "share": 0.76,
+   "share_conj": 0.76,
+   "top": [
+    [
+     "A48",
+     2.5
+    ]
+   ]
+  },
+  {
+   "county": "Worcestershire",
+   "nation": "England",
+   "km": 475.5,
+   "roman_km": 3.57,
+   "roman_km_conj": 3.57,
+   "share": 0.75,
+   "share_conj": 0.75,
+   "top": [
+    [
+     "A38",
+     3.4
+    ],
+    [
+     "A450",
+     0.1
+    ]
+   ]
+  },
+  {
+   "county": "City of Edinburgh",
+   "nation": "Scotland",
+   "km": 144.36,
+   "roman_km": 0.95,
+   "roman_km_conj": 0.95,
+   "share": 0.66,
+   "share_conj": 0.66,
+   "top": [
+    [
+     "A702",
+     1.0
+    ]
+   ]
+  },
+  {
+   "county": "Bristol",
+   "nation": "England",
+   "km": 87.39,
+   "roman_km": 0.33,
+   "roman_km_conj": 0.33,
+   "share": 0.38,
+   "share_conj": 0.38,
+   "top": [
+    [
+     "A38",
+     0.3
+    ],
+    [
+     "A4018",
+     0.0
+    ]
+   ]
+  },
+  {
+   "county": "Cornwall",
+   "nation": "England",
+   "km": 699.37,
+   "roman_km": 1.33,
+   "roman_km_conj": 1.33,
+   "share": 0.19,
+   "share_conj": 0.19,
+   "top": [
+    [
+     "A388",
+     1.3
+    ]
+   ]
+  },
+  {
+   "county": "Merseyside",
+   "nation": "England",
+   "km": 431.4,
+   "roman_km": 0.16,
+   "roman_km_conj": 0.16,
+   "share": 0.04,
+   "share_conj": 0.04,
+   "top": [
+    [
+     "A49",
+     0.2
+    ]
+   ]
+  },
+  {
+   "county": "Angus",
+   "nation": "Scotland",
+   "km": 238.68,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Aberdeen City",
+   "nation": "Scotland",
+   "km": 103.91,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Aberdeenshire",
+   "nation": "Scotland",
+   "km": 893.67,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "East Ayrshire",
+   "nation": "Scotland",
+   "km": 187.77,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Dundee City",
+   "nation": "Scotland",
+   "km": 46.49,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Clackmannanshire",
+   "nation": "Scotland",
+   "km": 51.2,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Argyll and Bute",
+   "nation": "Scotland",
+   "km": 806.65,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "East Dunbartonshire",
+   "nation": "Scotland",
+   "km": 54.9,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Falkirk",
+   "nation": "Scotland",
+   "km": 110.42,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Fife",
+   "nation": "Scotland",
+   "km": 402.47,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "East Renfrewshire",
+   "nation": "Scotland",
+   "km": 37.88,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "North Ayrshire",
+   "nation": "Scotland",
+   "km": 156.78,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Na h-Eileanan Siar",
+   "nation": "Scotland",
+   "km": 328.95,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Moray",
+   "nation": "Scotland",
+   "km": 255.37,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Inverclyde",
+   "nation": "Scotland",
+   "km": 47.25,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Highland",
+   "nation": "Scotland",
+   "km": 2351.21,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Isle of Wight",
+   "nation": "England",
+   "km": 105.03,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "East Lothian",
+   "nation": "Scotland",
+   "km": 163.4,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Glasgow City",
+   "nation": "Scotland",
+   "km": 124.12,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "South Ayrshire",
+   "nation": "Scotland",
+   "km": 202.96,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Shetland Islands",
+   "nation": "Scotland",
+   "km": 220.63,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Renfrewshire",
+   "nation": "Scotland",
+   "km": 80.79,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Perth and Kinross",
+   "nation": "Scotland",
+   "km": 619.8,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Orkney Islands",
+   "nation": "Scotland",
+   "km": 161.29,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "Stirling",
+   "nation": "Scotland",
+   "km": 310.64,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "West Lothian",
+   "nation": "Scotland",
+   "km": 145.95,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  },
+  {
+   "county": "West Dunbartonshire",
+   "nation": "Scotland",
+   "km": 62.13,
+   "roman_km": 0.0,
+   "roman_km_conj": 0.0,
+   "share": 0.0,
+   "share_conj": 0.0,
+   "top": NaN
+  }
+ ],
+ "roads": [
+  {
+   "ref1": "A5",
+   "km": 383.52,
+   "roman_km": 109.99,
+   "share": 28.68
+  },
+  {
+   "ref1": "A15",
+   "km": 152.53,
+   "roman_km": 43.5,
+   "share": 28.52
+  },
+  {
+   "ref1": "A66",
+   "km": 175.42,
+   "roman_km": 42.62,
+   "share": 24.3
+  },
+  {
+   "ref1": "A6",
+   "km": 429.0,
+   "roman_km": 42.44,
+   "share": 9.89
+  },
+  {
+   "ref1": "A429",
+   "km": 112.95,
+   "roman_km": 41.98,
+   "share": 37.17
+  },
+  {
+   "ref1": "A46",
+   "km": 291.4,
+   "roman_km": 39.39,
+   "share": 13.52
+  },
+  {
+   "ref1": "A38",
+   "km": 451.63,
+   "roman_km": 36.32,
+   "share": 8.04
+  },
+  {
+   "ref1": "A37",
+   "km": 92.16,
+   "roman_km": 31.76,
+   "share": 34.47
+  },
+  {
+   "ref1": "A2",
+   "km": 114.85,
+   "roman_km": 30.43,
+   "share": 26.5
+  },
+  {
+   "ref1": "A56",
+   "km": 114.28,
+   "roman_km": 28.54,
+   "share": 24.98
+  },
+  {
+   "ref1": "A11",
+   "km": 97.73,
+   "roman_km": 28.02,
+   "share": 28.67
+  },
+  {
+   "ref1": "A702",
+   "km": 132.86,
+   "roman_km": 26.49,
+   "share": 19.94
+  },
+  {
+   "ref1": "A68",
+   "km": 202.35,
+   "roman_km": 24.97,
+   "share": 12.34
+  },
+  {
+   "ref1": "A595",
+   "km": 131.08,
+   "roman_km": 24.25,
+   "share": 18.5
+  },
+  {
+   "ref1": "A40",
+   "km": 418.14,
+   "roman_km": 24.15,
+   "share": 5.78
+  },
+  {
+   "ref1": "A1198",
+   "km": 31.51,
+   "roman_km": 23.37,
+   "share": 74.16
+  },
+  {
+   "ref1": "A3052",
+   "km": 43.85,
+   "roman_km": 22.67,
+   "share": 51.69
+  },
+  {
+   "ref1": "A10",
+   "km": 145.82,
+   "roman_km": 22.36,
+   "share": 15.33
+  },
+  {
+   "ref1": "A140",
+   "km": 91.5,
+   "roman_km": 21.35,
+   "share": 23.34
+  },
+  {
+   "ref1": "A41",
+   "km": 242.0,
+   "roman_km": 20.75,
+   "share": 8.57
+  },
+  {
+   "ref1": "A166",
+   "km": 40.52,
+   "roman_km": 20.67,
+   "share": 51.02
+  },
+  {
+   "ref1": "A5183",
+   "km": 34.33,
+   "roman_km": 20.09,
+   "share": 58.51
+  },
+  {
+   "ref1": "A64",
+   "km": 105.12,
+   "roman_km": 19.93,
+   "share": 18.96
+  },
+  {
+   "ref1": "A485",
+   "km": 74.9,
+   "roman_km": 18.99,
+   "share": 25.35
+  },
+  {
+   "ref1": "A29",
+   "km": 54.5,
+   "roman_km": 16.63,
+   "share": 30.52
+  },
+  {
+   "ref1": "A49",
+   "km": 226.45,
+   "roman_km": 16.58,
+   "share": 7.32
+  },
+  {
+   "ref1": "A59",
+   "km": 169.76,
+   "roman_km": 16.02,
+   "share": 9.44
+  },
+  {
+   "ref1": "A1(M)",
+   "km": 241.23,
+   "roman_km": 15.74,
+   "share": 6.53
+  },
+  {
+   "ref1": "A315",
+   "km": 21.28,
+   "roman_km": 15.45,
+   "share": 72.64
+  },
+  {
+   "ref1": "A12",
+   "km": 183.33,
+   "roman_km": 14.77,
+   "share": 8.06
+  },
+  {
+   "ref1": "A1",
+   "km": 400.32,
+   "roman_km": 14.77,
+   "share": 3.69
+  },
+  {
+   "ref1": "A48",
+   "km": 184.74,
+   "roman_km": 14.68,
+   "share": 7.95
+  },
+  {
+   "ref1": "A1079",
+   "km": 59.68,
+   "roman_km": 14.21,
+   "share": 23.82
+  },
+  {
+   "ref1": "A35",
+   "km": 152.04,
+   "roman_km": 13.62,
+   "share": 8.96
+  },
+  {
+   "ref1": "A167",
+   "km": 110.04,
+   "roman_km": 11.72,
+   "share": 10.65
+  },
+  {
+   "ref1": "A470",
+   "km": 290.96,
+   "roman_km": 11.61,
+   "share": 3.99
+  },
+  {
+   "ref1": "A23",
+   "km": 85.51,
+   "roman_km": 11.22,
+   "share": 13.12
+  },
+  {
+   "ref1": "A120",
+   "km": 88.34,
+   "roman_km": 10.84,
+   "share": 12.27
+  },
+  {
+   "ref1": "A419",
+   "km": 54.84,
+   "roman_km": 10.44,
+   "share": 19.04
+  },
+  {
+   "ref1": "A52",
+   "km": 234.07,
+   "roman_km": 10.29,
+   "share": 4.4
+  }
+ ],
+ "roman_km_itinere": 11580.635988437165
+}
