@@ -113,7 +113,8 @@ body = f'''
       <li>Boundaries: Office for National Statistics, via <a href="https://github.com/onsvisual/uk-topojson">onsvisual/uk-topojson</a>. Contains OS data © Crown copyright and database right. Open Government Licence.</li>
       <li>Lidar: Environment Agency, <a href="https://environment.data.gov.uk/">LIDAR Composite DTM 1 m hillshade</a>, Open Government Licence.</li>
       <li>Roman Roads Research Association, <a href="https://www.romanroads.org/">romanroads.org</a>: gazetteer, lidar guides and the road-by-road story.</li>
-      <li>Data and code for this post: <a href="https://github.com/Tristan-Hotham/how-roman-is-your-road">github.com/Tristan-Hotham/how-roman-is-your-road</a>.</li>
+      <li>Data and code for this post: <a href="https://github.com/Tristan-Hotham/how-roman-is-your-road">github.com/Tristan-Hotham/how-roman-is-your-road</a>, archived on Zenodo as <a href="https://doi.org/10.5281/zenodo.23673516">doi:10.5281/zenodo.23673516</a>.</li>
+      <li>Cite as: Hotham, T. (2026). How Roman is your road? Data and code. Zenodo. https://doi.org/10.5281/zenodo.23673516</li>
       <li>AI use: I wrote this post with drafting, data and coding help from Claude (Anthropic).</li>
     </ul>'''
 

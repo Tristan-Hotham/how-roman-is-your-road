@@ -2,6 +2,10 @@
 
 **Read the post and check your county:** https://tristan-hotham.github.io/how-roman-is-your-road/
 
+**Archived data and code:** [doi:10.5281/zenodo.23673516](https://doi.org/10.5281/zenodo.23673516)
+
+**Cite as:** Hotham, T. (2026). *How Roman is your road? Data and code.* Zenodo. https://doi.org/10.5281/zenodo.23673516
+
 What share of each county's A-road length still follows a Roman line? This post lays the Itiner-e atlas of Roman roads (2025) over every A-road in Great Britain in OpenStreetMap. A lidar layer shows where the old roads survive as earthworks.
 
 ## Headline results (40 m rule)
